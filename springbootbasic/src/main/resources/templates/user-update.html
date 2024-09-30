@@ -7,25 +7,21 @@
 </head>
 <body>
 <div class="container mt-5">
-  <h2 class="mb-4">회원 등록</h2>
-  <form id="registrationForm">
+  <h2 class="mb-4">회원 수정</h2>
+  <form id="updateForm">
     <div class="form-group">
       <label for="name">이름</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요" required>
+      <input th:value="${user.name}" type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요" required>
     </div>
     <div class="form-group">
       <label for="email">이메일</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
+      <input th:value="${user.email}" type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
     </div>
     <div class="form-group">
       <label for="userid">ID</label>
-      <input type="text" class="form-control" id="userid" name="userid" placeholder="ID를 입력하세요." required>
+      <input th:value="${user.userid}" type="text" class="form-control" id="userid" name="userid" placeholder="ID를 입력하세요." required>
     </div>
-    <div class="form-group">
-      <label for="password">비밀번호</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="submitForm()">등록</button>
+    <button type="button" class="btn btn-primary" onclick="submitForm()">수정</button>
   </form>
 </div>
 
@@ -44,8 +40,8 @@
       password: document.getElementById('password').value
     };
 
-    fetch('/users/register', {
-      method: 'POST',
+    fetch('/users', {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },

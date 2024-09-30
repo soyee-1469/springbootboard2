@@ -7,11 +7,13 @@ import lombok.*;
 @Builder //*******************
 @AllArgsConstructor
 
-    public class MemberListResponseDTO{
+    public class MemberResponseDTO {
         private Long id;
         private String name;
         private String email;
         private String userid; //대소문자 구분안함, 구분하려면 _
+        private String password;
+
 
     }
 

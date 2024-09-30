@@ -7,22 +7,18 @@
 </head>
 <body>
 <div class="container mt-5">
-  <h2 class="mb-4">회원 수정</h2>
+  <h2 class="mb-4">회원 삭제</h2>
   <form id="registrationForm">
     <div class="form-group">
-      <label for="name">이름</label>
-      <input th:value="${user.name}" type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요" required>
-    </div>
-    <div class="form-group">
-      <label for="email">이메일</label>
-      <input th:value="${user.email}"  type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
-    </div>
     <div class="form-group">
       <label for="userid">ID</label>
       <input th:value="${user.id}"  type="text" class="form-control" id="userid" name="userid" placeholder="ID를 입력하세요." required>
     </div>
+      <label for="userid">PASSWORD</label>
+      <input th:value="${user.password}" type="text" class="form-control" id="password" name="userid" placeholder="패스워드를 입력하세요." required>
+    </div>
 
-    <button type="button" class="btn btn-primary" onclick="submitForm()">수정</button>
+    <button type="button" class="btn btn-primary" onclick="submitForm()">삭제</button>
   </form>
 </div>
 
@@ -42,7 +38,7 @@
     };
 
     fetch('/users/', {
-      method: 'PUT',
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },

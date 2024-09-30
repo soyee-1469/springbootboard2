@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notice.css">
+</head>
+<body>
+<div id='con'>
+
+    <div id='header'>
+
+    </div>
+    <div class="container mt-5">
+        <h2 class="mb-4">회원 등록</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="userid">ID</label>
+                <input type="text" class="form-control" id="userid" name="userid" placeholder="ID를 입력하세요." required>
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitForm()">등록</button>
+        </form>
+    </div>
+    <div id='footer'>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
