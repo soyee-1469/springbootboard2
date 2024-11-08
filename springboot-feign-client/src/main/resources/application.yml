@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+feign-data:
+  url: "http://localhost:8083"
+
+weather:
+  api:
+    url: "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst"
+    key: "GJknCo2+o53WsSBM4W0ttkLBvCtF+kvm/3KuMDytZg5vXJqK5HoFxAY5mhAKV1k1uolapSgbLfGTmfWoNrEC2g=="

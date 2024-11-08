@@ -1,0 +1,57 @@
+show databases;
+create database basicboard;
+use basicboard;
+create table member
+(
+    id        bigint auto_increment primary key,
+    userid    varchar(30) not null,
+    password  varchar(50) not null,
+    user_name varchar(10) not null
+);
+
+create table article
+(
+    id      bigint auto_increment primary key,
+    user_id varchar(30)  not null,
+    title   varchar(100) not null,
+    content text         not null,
+    created datetime default current_timestamp,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+desc member;
+select * from member;
+select * from article;
+
+
+INSERT INTO article (user_id, title, content, created, updated) VALUES
+                                                                    ('user1', '첫 번째 게시글', '첫 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '두 번째 게시글', '두 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '세 번째 게시글', '세 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '네 번째 게시글', '네 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '다섯 번째 게시글', '다섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '여섯 번째 게시글', '여섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '일곱 번째 게시글', '일곱 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '여덟 번째 게시글', '여덟 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '아홉 번째 게시글', '아홉 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '열 번째 게시글', '열 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '열한 번째 게시글', '열한 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '열두 번째 게시글', '열두 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '열세 번째 게시글', '열세 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '열네 번째 게시글', '열네 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '열다섯 번째 게시글', '열다섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '열여섯 번째 게시글', '열여섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '열일곱 번째 게시글', '열일곱 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '열여덟 번째 게시글', '열여덟 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '열아홉 번째 게시글', '열아홉 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '스무 번째 게시글', '스무 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '스물한 번째 게시글', '스물한 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '스물두 번째 게시글', '스물두 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '스물세 번째 게시글', '스물세 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '스물네 번째 게시글', '스물네 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '스물다섯 번째 게시글', '스물다섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '스물여섯 번째 게시글', '스물여섯 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user3', '스물일곱 번째 게시글', '스물일곱 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user1', '스물여덟 번째 게시글', '스물여덟 번째 게시글의 내용입니다.', NOW(), NOW()),
+                                                                    ('user2', '서른 번째 게시글', '서른 번째 게시글의 내용입니다.', NOW(), NOW());
+
