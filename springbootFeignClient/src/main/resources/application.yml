@@ -1,5 +1,0 @@
-server:
-  port: 8081
-
-feign-data:
-  url: "http://localhost:8083"

@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserDetailService implements UserDetailsService {
@@ -17,13 +19,17 @@ public class UserDetailService implements UserDetailsService {
     @Override
     public CustomUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Member member = memberMapper.signIn(username);
+        Member member = memberMapper.findByUserId(username);
+        System.out.println("CustomUserDetails " + member);
         if (member == null) {
             throw new UsernameNotFoundException(username + " not found");
         }
 
         return CustomUserDetails.builder()
                 .member(member)
+                .roles(
+                        List.of(String.valueOf(member.getRole()))
+                )
                 .build();
     }
 }

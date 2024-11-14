@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8081
 
 spring:
   application:
@@ -15,4 +15,4 @@ mybatis:
 
 jwt:
   issuer: test@naver.com
-  secret_key: "c44ZyC+ivHh0jFC2K4mSuq86yGSWy3JGQjH/SIenwzSJXep0Bihs89b42xWhUbUW9i3aMtF4DlmOM9NPrPtQug=="
+  secret_key: xQvQylewPF5UfZptSTJZxcsvJ8D8VoN4wiWzXrWEMYda6PHTtocLj8VrM6zPJQXYRqI9bwbH5kSEPd61lleAbA==

@@ -1,15 +1,22 @@
 
 $(document).ready(() => {
-    checkSession();
+    checkToken();
+    setupAjax();
+
+    getUserInfo().then((userInfo) => {
+
+        console.log('userinfo :: ', userInfo);
+        $('#welcome-message').text(userInfo.userName + '(' + userInfo.userId + ')님 환영합니다!');
+        $('#hiddenUserId').val(userInfo.userId);
+        $('#hiddenUserName').val(userInfo.userName);
+
+    }).catch((error) => {
+       console.log('Error while fetching user info : ', error);
+    });
+
     getBoards();
 });
 
-let checkSession = () => {
-    let hUserId = $('#hiddenUserId').val();
-
-    if (hUserId == null || hUserId === '')
-        window.location.href = "/member/login";
-}
 
 let getBoards = () => {
     let currentPage = 1;
@@ -73,9 +80,31 @@ let loadBoard = (page, size) => {
             $('#prevPage').prop('disabled', page === 1);
             $('#nextPage').prop('disabled', response.last);
         },
-        error: function (error) {
-            console.error('오류 발생:', error);
-            alert('게시판 데이터를 불러오는데 오류가 발생했습니다.');
+        error: function (xhr, error) {
+            if (xhr.status === 401) {
+                handleTokenExpiration();
+            } else {
+                console.error('오류 발생:', error);
+                alert('게시판 데이터를 불러오는데 오류가 발생했습니다.');
+            }
         }
+    });
+}
+
+let logout = () => {
+    $.ajax({
+        type: 'POST',
+        url: '/logout',
+        contentType: 'application/json; charset=utf-8',
+        success:(response) => {
+            alert(response.message);
+            localStorage.removeItem('accessToken');
+            window.location.href = response.url;
+        },
+        error: (error) => {
+            console.log('logout 오류 발생 :: ', error);
+            alert('로그아웃 중 오류가 발생했습니다!');
+        }
+
     });
 }
